@@ -32,34 +32,31 @@
 }*/
 
 
-/*int main(){
+/*using namespace std;
 
-int d;
-int g;
-
-std::cout << "wymysl swoja liczbe \n";
-std::cout << "podaj najnizsza liczbe zakresu \n";
-std::cin >> d;
-std::cout << "podaj najwyzsza liczbe zakresu \n";
-std::cin >> g;
-
-while ( g > d){
-    int h = (g + d)/2;
+int main(){
+    int l, u;
     char ans;
-    std::cout << "czy twoja liczba jest mniejsza od " << h << "(t/n)\n";
-    std::cin >> ans;
-    if(ans != 't' && ans != 'n'){
-        std::cout << "wprowadz (t/n) \n";
-        std::cin >> ans;
+    cout << "wymysl swoja liczbe \n";
+    cout << "podaj dolny zakres \n";
+    cin >> l;
+    cout << "podaj gorny zakres \n";
+    cin >> u;
+    if (l >= u) {
+        cout << "Dolny zakres musi byc mniejszy od gornego zakresu.\n";
+        return 1;
     }
-    if(ans == 't'){
-        g = h;
+    while (u>l){
+        int h = (u+l)/2;
+        cout << "czy twoja liczba jest mniejsza od " << h << "(t/n) \n";
+        cin >> ans;
+        if (ans == 't')
+            u = h;
+        if (ans == 'n')
+            l = h + 1;
     }
-    if(ans == 'n'){
-        d = h - 1;
-    }
-}
-std::cout << "twoja liczba to " << g;
+    cout << "twoja liczba to " << l;
+    return 0;
 }*/
 
 

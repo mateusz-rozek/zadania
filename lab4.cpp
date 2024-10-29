@@ -2,7 +2,51 @@
 #include <random>
 using namespace std;
 
-int main() {
+int main(){
+    int w, s;
+    cout << "podaj wysokosc \n";
+    cin >> w;
+    cout << "podaj szerokosc \n";;
+    cin >> s;
+    int tab[w][s];
+    int num = 1;
+    int g = 0;
+    int d = w - 1;
+    int l = 0;
+    int p = s - 1;
+    while(num <= s*w){
+        for(int i = l; i <= p; i++){
+            tab[g][i] = num++;
+        }
+        g++;
+        for(int i = g; i <= d;i++){
+            tab[i][p] = num++;        
+        }
+        p--;
+        if(g <= d){
+            for(int i = p; i >= l; i--){
+                tab[d][i] = num++;
+            }
+            d--;
+        }
+        if(l <= p){
+            for(int i = d; i >= g;i--){
+                tab[i][l] = num++;
+            }
+            l++;
+        }
+    }
+    for(int i = 0; i < w;i++){
+        for(int j = 0; j < s;j++){
+            cout << tab[i][j] << "\t";
+        }
+        cout << endl;
+
+    }
+    return 0;
+}
+
+/*int main() {
 	const int n = 10;
 	int tab[10][10];
 	for (int i = 0; i < 10; i++) {
@@ -13,7 +57,7 @@ int main() {
 		cout << endl;
 	}
 	return 0;
-}
+}*/
 
 /*int main() {
 	double pod;

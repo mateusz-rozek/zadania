@@ -1,34 +1,45 @@
 ﻿#include <iostream>
-#include <math.h>
+#include <fstream>
+#include <random>
 #include <string>
+#include <vector>
 using namespace std;
 
-int num_a(string tekst, int a = 0) {
-	for (int i = 0; i < tekst. length(); i++) {
-		if (tekst[i] == 'a' || tekst[i] == 'A') {
-			a++;
+void wyp1(int n) {
+	vector<int> vec;
+	ifstream plik("plik.txt");
+	string linia;
+	int b;
+	for (int i = 0; i < n; i++) {
+		while (getline(plik, linia)) {
+			b = linia;
+			vec.push_back(b);
 		}
 	}
-	return a;
+
 }
 
-double distance(double x1, double x2, double y1, double y2) {
-	double dis = sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
-	return dis;
+void wyp() {
+	ifstream plik("plik.txt");
+	string linia;
+	while (getline(plik, linia)) {
+		cout << linia << "\n";
+	}
+	plik.close();
 }
 
-double beta(double bok, double n) {
-	double wynik = pow(bok, n);
-	return wynik;
+void gen(int n) {
+	ofstream plik("plik.txt");
+	for (int i = 0; i < n; i++) {
+		plik << i << "\n";
+	};
 }
-double alfa(double bok) {;
-	double wynik = pow(bok, 3);
-	return wynik;
-}
-	
+
 int main() {
-	int a = 0;
-	string tekst;
-	getline(cin, tekst);
-	cout << num_a(tekst, a);
+	int n, a;
+	cout << "podaj ilosc znakow \n";
+	cin >> n;
+	gen(n);
+	wyp();
+	wyp1(n);
 }
